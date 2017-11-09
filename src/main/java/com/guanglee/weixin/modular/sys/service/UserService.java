@@ -6,4 +6,5 @@ public interface UserService {
 	public User findById(String id);
 	public void deleteById(String id);
 	public void insertUser(User user);
+	public void updateUser(User user);
 }

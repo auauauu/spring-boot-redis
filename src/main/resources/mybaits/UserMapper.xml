@@ -37,4 +37,13 @@
 	<insert id="insertUser" parameterType="com.guanglee.weixin.modular.sys.model.User">
 		insert into user (id,name) values (#{id,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR})
 	</insert>
+	<update id="updateUser" parameterType="com.guanglee.weixin.modular.sys.model.User">
+		update user 
+		<set>
+			<if test="name!=null">
+				name = #{name,jdbcType=VARCHAR}
+			</if>
+		</set>
+		where id=#{id,jdbcType=VARCHAR}
+	</update>
 </mapper>

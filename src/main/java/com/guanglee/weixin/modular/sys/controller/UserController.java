@@ -34,4 +34,10 @@ public class UserController {
 		service.insertUser(user);
 		return "SUCCESS";
 	}
+	
+	@PostMapping("/sys/user/updateUser")
+	public String updateUser(User user) {
+		service.updateUser(user);
+		return "SUCCESS";
+	}
 }
