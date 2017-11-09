@@ -25,4 +25,10 @@ public class UserServiceImpl implements UserService{
 		mapper.deleteById(id);
 	}
 
+	@Override
+	public void insertUser(User user) {
+		// TODO Auto-generated method stub
+		mapper.insertUser(user);
+	}
+
 }
