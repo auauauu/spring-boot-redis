@@ -1,5 +1,8 @@
 package com.guanglee.weixin.modular.sys.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,6 +41,14 @@ public class UserController {
 	@PostMapping("/sys/user/updateUser")
 	public String updateUser(User user) {
 		service.updateUser(user);
+		return "SUCCESS";
+	}
+	
+	@GetMapping("/sys/user/savetosesson/{id}")
+	public String saveUserToSession(HttpServletRequest request,@PathVariable String id) {
+		User user = service.findById(id);
+		HttpSession session = request.getSession();
+		session.setAttribute("user", user);
 		return "SUCCESS";
 	}
 }
